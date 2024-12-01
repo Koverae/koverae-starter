@@ -10,6 +10,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Route;
 
 class TwoFactorController extends Controller
 {
@@ -44,7 +45,7 @@ class TwoFactorController extends Controller
         $user->last_login_ip = $request->ip();
         $user->save();
 
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard', ['subdomain' => current_company()->domain_name]);
     }
 
     public function resend(): RedirectResponse

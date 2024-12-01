@@ -7554,7 +7554,6 @@ function togglePassword() {
     }
 } 
 // OTP Input
-
 document.addEventListener("DOMContentLoaded", function() {
     var inputs = document.querySelectorAll('[data-code-input]');
     // Attach an event listener to each input element
@@ -7572,4 +7571,73 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+});
+
+// Notification Box
+
+document.addEventListener('DOMContentLoaded', function () {
+    var dropdown = document.getElementById('dropdownMenuButton');
+    var dropdownMenu = document.querySelector('.dropdown-menu');
+
+    // Prevent closing on click inside
+    dropdownMenu.addEventListener('click', function (e) {
+        e.stopPropagation();
+    });
+});
+
+// Add event listeners to toggle expandable rows
+document.addEventListener("DOMContentLoaded", () => {
+	document.querySelectorAll(".kover-navlink").forEach(row => {
+		row.addEventListener("click", () => {
+			const rowId = row.dataset.id; // Get the linked row ID
+			const detailsRow = document.getElementById(`details-${rowId}`);
+			if (detailsRow) {
+				detailsRow.classList.toggle("show");
+			}
+		});
+	});
+});
+
+
+// Show / Hide Password
+function togglePassword() {
+    const passwordField = document.getElementById('password');
+    const passwordFieldType = passwordField.getAttribute('type');
+
+    if (passwordFieldType === 'password') {
+        passwordField.setAttribute('type', 'text');
+    } else {
+        passwordField.setAttribute('type', 'password');
+    }
+} 
+// OTP Input
+document.addEventListener("DOMContentLoaded", function() {
+    var inputs = document.querySelectorAll('[data-code-input]');
+    // Attach an event listener to each input element
+    for(let i = 0; i < inputs.length; i++) {
+        inputs[i].addEventListener('input', function(e) {
+            // If the input field has a character, and there is a next input field, focus it
+            if(e.target.value.length === e.target.maxLength && i + 1 < inputs.length) {
+                inputs[i + 1].focus();
+            }
+        });
+        inputs[i].addEventListener('keydown', function(e) {
+            // If the input field is empty and the keyCode for Backspace (8) is detected, and there is a previous input field, focus it
+            if(e.target.value.length === 0 && e.keyCode === 8 && i > 0) {
+                inputs[i - 1].focus();
+            }
+        });
+    }
+});
+
+// Notification Box
+
+document.addEventListener('DOMContentLoaded', function () {
+    var dropdown = document.getElementById('dropdownMenuButton');
+    var dropdownMenu = document.querySelector('.dropdown-menu');
+
+    // Prevent closing on click inside
+    dropdownMenu.addEventListener('click', function (e) {
+        e.stopPropagation();
+    });
 });

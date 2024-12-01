@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Notifications\Notification;
+use App\Models\Team\Team;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -51,6 +52,12 @@ class User extends Authenticatable implements MustVerifyEmail
     // {
     //     $this->notify(new CustomVerifyEmailNotification());
     // }
+
+    // Get Team
+    public function team()
+    {
+        return $this->belongsTo(Team::class, 'team_id');
+    }
 
     /**
      * Route notifications for the Vonage channel.

@@ -7,6 +7,7 @@ use App\Notifications\SendTwoFactorCodeNotification;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Route;
 
 class TwoFactorMiddleware
 {
@@ -43,7 +44,7 @@ class TwoFactorMiddleware
                 // Check if the current IP matches the last login IP and if the user is not on a verification route
                 if ($user->last_login_ip !== $request->ip() && !$request->is('verify*')) {
                     // Redirect to the OTP verification page
-                    return redirect()->route('verify.index');
+                    return redirect()->intended(Route::subdomainRoute('verify.index'));
                 }
             }
         }

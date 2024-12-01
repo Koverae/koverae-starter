@@ -8,10 +8,8 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{asset('assets/images/logo/favicon.ico')}}" />
     <!-- CSS files -->
-    <link href="{{ asset('assets/css/koverae.min.css?'.time())}}" rel="stylesheet"/>
+    <link href="{{ asset('assets/css/koverae.css?'.time())}}" rel="stylesheet"/>
     <link href="{{ asset('assets/css/koverae-flags.min.css?'.time())}}" rel="stylesheet"/>
-    <link href="{{ asset('assets/css/koverae-payments.min.css?'.time())}}" rel="stylesheet"/>
-    <link href="{{ asset('assets/css/koverae-vendors.min.css?'.time())}}" rel="stylesheet"/>
     <link href="{{ asset('assets/css/demo.min.css?'.time())}}" rel="stylesheet"/>
     <style>
       @import url('https://rsms.me/inter/inter.css');
@@ -29,7 +27,7 @@
     @yield('page_content')
     
     <!-- Libs JS -->
-    <!-- Tabler Core -->
+    <!-- Koverae Core -->
     <script src="{{ asset('assets/js/koverae.min.js?'.time())}}" defer></script>
     <script src="{{ asset('assets/js/koverae.js?'.time())}}" defer></script>
     <script src="{{ asset('assets/js/demo.min.js?'.time())}}" defer></script>
